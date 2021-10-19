@@ -1706,9 +1706,9 @@ eureka:
 
 Spring Cloud Bus是用轻量的消息代理将分布式的节点连接起来,可以用于广播配置文件的更改或者服务的监控管理。一个关键的思想就是,消息总线可以为微服务做监控,也可以实现应用程序之间相互通信。Spring Cloud Bus可选的消息代理有RabbitMQ和Kfaka。
 
-![image-20211007213036713](C:\Users\guoshutao\AppData\Roaming\Typora\typora-user-images\image-20211007213036713.png)
+![image-20211007213036713](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/springcloud二/1573030993005.png)
 
-![image-20211007213044448](C:\Users\guoshutao\AppData\Roaming\Typora\typora-user-images\image-20211007213044448.png)
+![image-20211007213044448](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/springcloud二/1573031047972.png)
 
 ### 改造配置中心
 
@@ -1812,4 +1812,4 @@ eureka:
 
 ## 技术体系综合应用概览
 
-![image-20211007213324976](C:\Users\guoshutao\AppData\Roaming\Typora\typora-user-images\image-20211007213324976.png)
+![image-20211007213324976](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/springcloud二/1573031949671.png)
