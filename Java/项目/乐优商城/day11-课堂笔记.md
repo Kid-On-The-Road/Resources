@@ -65,7 +65,7 @@
 
 参考课前资料的《阿里短信.md》学习demo入门
 
-![1577257345500](图片/1577257345500.png) 
+![1577257345500](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577257345500.png) 
 
 
 
@@ -89,15 +89,15 @@ https://help.aliyun.com/document_detail/101414.html
 
 点击链接打开页面后，点击这个按钮调式：
 
-![1577259287700](图片/1577259287700.png) 
+![1577259287700](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577259287700.png) 
 
 点击后，出现如下视图：
 
-![1577259702775](图片/1577259702775.png) 
+![1577259702775](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577259702775.png) 
 
 填入各类参数后，点击 `发起调用`按钮即可，然后该手机会受到这样一条短信：
 
-![1577259801071](图片/1577259801071.png) 
+![1577259801071](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577259801071.png) 
 
 
 
@@ -118,7 +118,7 @@ https://help.aliyun.com/document_detail/101414.html
 
 ### 1）创建module
 
-![1577263325821](图片/1577263325821.png) 
+![1577263325821](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577263325821.png) 
 
 
 
@@ -426,7 +426,7 @@ public final class SmsConstants {
 
 如图：
 
-![1577266847058](图片/1577266847058.png) 
+![1577266847058](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577266847058.png) 
 
 
 
@@ -658,7 +658,7 @@ public class MessageListenerTest {
 
 查看RabbitMQ控制台，发现交换机已经创建：
 
- ![1527239600218](图片/1527239600218.png) 
+ ![1527239600218](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1527239600218.png) 
 
 
 
@@ -672,7 +672,7 @@ public class MessageListenerTest {
 
 Redis和短信我们都准备就绪了，接下来就是开搞用户注册了，开发用户注册，我们之前分析了注册功能，这时候开发这些功能我们要参照接口文档来开发，开发文档在课前资料中，我们打开API接口文档，找到下图部分：
 
-![1577273341831](图片/1577273341831.png) 
+![1577273341831](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577273341831.png) 
 
 
 
@@ -713,11 +713,11 @@ Redis和短信我们都准备就绪了，接下来就是开搞用户注册了，
 
 ### 1）创建父module
 
-![1577328413615](图片/1577328413615.png) 
+![1577328413615](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577328413615.png) 
 
 该项目打包方式记得改为pom ：
 
-![1577328556607](图片/1577328556607.png) 
+![1577328556607](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577328556607.png) 
 
 
 
@@ -725,7 +725,7 @@ Redis和短信我们都准备就绪了，接下来就是开搞用户注册了，
 
 我们在ly-user下创建module：ly-user-dto
 
-![1577328629109](图片/1577328629109.png) 
+![1577328629109](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577328629109.png) 
 
  
 
@@ -733,13 +733,13 @@ Redis和短信我们都准备就绪了，接下来就是开搞用户注册了，
 
 我们在ly-user下创建module：ly-user-client
 
-![1577328682036](图片/1577328682036.png) 
+![1577328682036](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577328682036.png) 
 
  
 
 ### 4）创建ly-user-service
 
-![1577328836318](图片/1577328836318.png) 
+![1577328836318](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577328836318.png) 
 
 
 
@@ -888,7 +888,7 @@ logging:
 
 我们修改`ly-gateway`配置，添加路由规则，对`ly-user-service`进行路由:
 
-![1577329581013](图片/1577329581013.png) 
+![1577329581013](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577329581013.png) 
 
 
 
@@ -1139,21 +1139,21 @@ public class UserService {
 
 我们查看数据库中的数据：
 
-![1577330768054](图片/1577330768054.png) 
+![1577330768054](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577330768054.png) 
 
 然后启动微服务，在浏览器调用接口，测试用户名：
 
-![1577330914146](图片/1577330914146.png) 
+![1577330914146](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577330914146.png) 
 
-![1577330871961](图片/1577330871961.png) 
+![1577330871961](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577330871961.png) 
 
 
 
 测试手机号码：
 
-![1577330973722](图片/1577330973722.png) 
+![1577330973722](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577330973722.png) 
 
-![1577331011749](图片/1577331011749.png) 
+![1577331011749](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577331011749.png) 
 
 
 
@@ -1518,7 +1518,7 @@ public void register(User user, String code) {
 
 而SpringBoot的web启动器中已经集成了相关依赖：
 
-![1577336953660](图片/1577336953660.png) 
+![1577336953660](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577336953660.png) 
 
 
 
@@ -1528,7 +1528,7 @@ Hibernate Validator是Hibernate提供的一个开源框架，使用注解方式�
 
 官网：http://hibernate.org/validator/
 
-![1577337059910](图片/1577337059910.png) 
+![1577337059910](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577337059910.png) 
 
 
 
@@ -1610,7 +1610,7 @@ public class User {
 
 在controller中只需要给User添加 @Valid注解即可。
 
-![1577345073689](图片/1577345073689.png) 
+![1577345073689](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577345073689.png) 
 
 
 
@@ -1620,7 +1620,7 @@ public class User {
 
 我们故意填错，然后SpringMVC会自动返回错误信息：
 
-![1577345163508](图片/1577345163508.png) 
+![1577345163508](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577345163508.png) 
 
 
 
@@ -1654,7 +1654,7 @@ BindingResult中会封装错误结果，我们通过result.hashErrors来判断�
 
 再次测试：
 
-![1577345745350](图片/1577345745350.png) 
+![1577345745350](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1577345745350.png) 
 
 
 
@@ -1834,7 +1834,7 @@ public UserDTO queryUserByUsernameAndPassword(String username, String password) 
 
 我们通过RestClient测试：
 
- ![1554548239554](图片/1554548239554.png)
+ ![1554548239554](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1554548239554.png)
 
 
 
@@ -1962,11 +1962,11 @@ public class SwaggerConfig {
 
 就能看到swagger-ui为我们提供的API页面了：
 
-![1554549137117](图片/1554549137117.png)
+![1554549137117](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1554549137117.png)
 
 可以看到我们编写的4个接口，任意点击一个，即可看到接口的详细信息：
 
-![1554554238765](图片/1554554238765.png)
+![1554554238765](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1554554238765.png)
 
 可以看到详细的接口声明，包括：
 
@@ -1977,11 +1977,11 @@ public class SwaggerConfig {
 
 点击右上角的`try it out!`还可以测试接口：
 
-![1554554464170](图片/1554554464170.png)
+![1554554464170](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1554554464170.png)
 
 填写参数信息，点击execute，可以发起请求并测试：
 
-![1554554533108](图片/1554554533108.png)
+![1554554533108](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1554554533108.png)
 
 
 
@@ -2033,7 +2033,7 @@ public ResponseEntity<Boolean> checkUserData(
 
 查看文档：
 
-![1554555057087](图片/1554555057087.png)
+![1554555057087](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1554555057087.png)
 
 
 

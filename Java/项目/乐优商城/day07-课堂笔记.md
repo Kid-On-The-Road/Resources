@@ -44,11 +44,11 @@
 
 只要能把Goods创建出来，那么我们就可以插入索引库了，在第六天的时候我们设计的Goods对象如下：
 
-![1578836762826](图片二/1578836762826.png) 
+![1578836762826](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1578836762826.png) 
 
 转成json结构之后，如下图：
 
-![1578838033198](图片二/1578838033198.png) 
+![1578838033198](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1578838033198.png) 
 
 
 
@@ -368,7 +368,7 @@ public class SearchService {
 
 怎么办？这里的设计非常巧妙，当我们把屏幕尺寸存入到索引库的时候，我们不存入值，我们先把它转成段，然后再存入索引库，这样搜索的时候，我们就可以使用term词条查询了，这样的性能就很高了。例如：   5.2英寸    ，我们就存入一个段：   ==5.0-5.5英寸==，   搜索的时候，把==5.0-5.5英寸==当成词条即可。
 
-![1529717362585](图片二/1529717362585.png)
+![1529717362585](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1529717362585.png)
 
 所以我们在存入时要进行分段处理，这段逻辑比较复杂，我已经把它封装成方法，大家直接调用即可：
 
@@ -631,7 +631,7 @@ public class LoadDataTest {
 
 执行测试代码，然后查看索引库：
 
-![1576059450814](图片二/1576059450814.png) 
+![1576059450814](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576059450814.png) 
 
 
 
@@ -659,25 +659,25 @@ public class LoadDataTest {
 
 在首页的顶部，有一个输入框：
 
-![1576118211900](图片二/1576118211900.png) 
+![1576118211900](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576118211900.png) 
 
 当我们输入任何文本，点击搜索，就会跳转到搜索页`search.html`了：
 
 并且将搜索关键字以请求参数携带过来：
 
-![1576118400717](图片二/1576118400717.png) 
+![1576118400717](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576118400717.png) 
 
 首页是`index.html`中有这么一段代码：
 
-![1576118772328](图片二/1576118772328.png) 
+![1576118772328](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576118772328.png) 
 
 接下来我们看看js下的pages目录的top.js文件：
 
-![1576119088489](图片二/1576119088489.png) 
+![1576119088489](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576119088489.png) 
 
 当我们点击了搜索按钮，那么就会触发search方法，所以接下来我们看下top.js的search方法：
 
-![1576119247538](图片二/1576119247538.png) 
+![1576119247538](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576119247538.png) 
 
 可以看到，这个方法会自动把搜索关键字  拼接到search.html页面的参数部分，因此跳转到search.html页面的时候，这个页面就自动有了参数，那么页面有了参数，在哪里去执行查询操作？
 
@@ -762,19 +762,19 @@ methods: {
 
 发送请求时发现，有跨域问题，原因是我们之前的配置的跨域，是manage.leyou.com，现在我们是在www.leyou.com发送请求到api.leyou.com的，因此需要在网关配置允许www.leyou.com的跨域：
 
-![1576134693861](图片二/1576134693861.png) 
+![1576134693861](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576134693861.png) 
 
 打开`ly-gateway`的application.yml配置允许跨域：
 
-![1576134846932](图片二/1576134846932.png) 
+![1576134846932](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576134846932.png) 
 
 修改完成后，重启网关微服务，再次访问，发现跨域问题已经解决：
 
-![1576134970618](图片二/1576134970618.png) 
+![1576134970618](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576134970618.png) 
 
 接下来我们看看请求参数等是否正确：
 
-![1576135079535](图片二/1576135079535.png) 
+![1576135079535](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576135079535.png) 
 
 好，页面请求和页面参数都处理好了，接下来我们就开始写后台代码
 
@@ -851,7 +851,7 @@ methods: {
 
 - 结构：
 
-  ![1576139823476](图片二/1576139823476.png) 
+  ![1576139823476](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576139823476.png) 
 
  
 
@@ -950,7 +950,7 @@ public class SearchService {
 
 编写完成后，我们重启搜索微服务，然后测试：
 
-![1576144902502](图片二/1576144902502.png) 
+![1576144902502](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576144902502.png) 
 
 
 
@@ -1030,11 +1030,11 @@ public class SearchService {
 
 在Chrome中通过vue插件去查看，这些数据是否已经变成我们要的数据：
 
-![1576148514401](图片二/1576148514401.png) 
+![1576148514401](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576148514401.png) 
 
 通过这一步，我们要渲染的数据全部准备好了，我们动态加入的数据如下图：
 
-![1576201525605](图片二/1576201525605.png) 
+![1576201525605](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576201525605.png) 
 
 接下来，我们就把这些数据渲染到页面中。
 
@@ -1052,13 +1052,13 @@ public class SearchService {
 
 在search.html的中部，有一个`div`，用来展示所有搜索到的商品：
 
-![1576202284568](图片二/1576202284568.png) 
+![1576202284568](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576202284568.png) 
 
 可以看到，`div`中有一个无序列表`ul`，内部的每一个`li`就是一个商品spu了。
 
 我们删除多余的，只保留一个`li`，然后利用vue的循环来展示搜索到的结果：
 
-![1576202625582](图片二/1576202625582.png) 
+![1576202625582](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576202625582.png) 
 
 
 
@@ -1068,17 +1068,17 @@ public class SearchService {
 
 接下来展示具体的商品信息，来看图：
 
- ![1526607712207](图片二/1526607712207.png)
+ ![1526607712207](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526607712207.png)
 
 这里我们可以发现，一个商品位置，是多个sku的信息集合。**当用户鼠标选择某个sku，对应的图片、价格、标题会随之改变！**
 
 我们先来实现sku的选择，才能去展示不同sku的数据。
 
- ![1526654252710](图片二/1526654252710.png)
+ ![1526654252710](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526654252710.png)
 
 可以看到，在列表中默认第一个是被选中的，而且渲染的图片价格也是第一个sku的，而我们返回的数据中，多个sku是json格式：
 
-![1553684825713](图片二/1553684825713.png)
+![1553684825713](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1553684825713.png)
 
 那我们就需要做4件事情：
 
@@ -1093,11 +1093,11 @@ public class SearchService {
 
 我们在查询成功的回调函数中，对goods进行遍历，然后添加一个selected属性，保存被选中的sku：
 
-![1576209632363](图片二/1576209632363.png) 
+![1576209632363](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576209632363.png) 
 
 看到结果中，默认选中的是数组中的第一个：
 
-![1576215458903](图片二/1576215458903.png)  
+![1576215458903](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576215458903.png)  
 
 
 
@@ -1105,7 +1105,7 @@ public class SearchService {
 
 接下来，我们看看多个sku的图片列表位置：下图中ul部分
 
-![1576209766993](图片二/1576209766993.png) 
+![1576209766993](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576209766993.png) 
 
 看到又是一个无序列表，这里我们也一样删掉多余的，保留一个`li`，需要注意选中的项有一个样式类：selected
 
@@ -1140,21 +1140,21 @@ public class SearchService {
 
 改造：
 
- ![1576217473014](图片二/1576217473014.png) 
+ ![1576217473014](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576217473014.png) 
 
 结果报错：
 
- ![1526656512105](图片二/1526656512105.png)
+ ![1526656512105](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526656512105.png)
 
 为啥？
 
 因为在Vue范围内使用任何变量，都会默认去Vue实例中寻找，我们使用ly，但是Vue实例中没有这个变量。所以解决办法就是把ly记录到Vue实例：
 
-![1576217388844](图片二/1576217388844.png) 
+![1576217388844](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576217388844.png) 
 
 然后刷新页面：
 
- ![1526656689574](图片二/1526656689574.png)
+ ![1526656689574](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526656689574.png)
 
 
 
@@ -1164,13 +1164,13 @@ public class SearchService {
 
 可以通过css样式隐藏多余数据：
 
-![1576217552123](图片二/1576217552123.png) 
+![1576217552123](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576217552123.png) 
 
 
 
 #### 最终结果
 
- ![](图片二/skus.gif)
+ ![](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/skus.gif)
 
 
 
@@ -1186,11 +1186,11 @@ public class SearchService {
 
 列表下方的分页：
 
-![1576220429830](图片二/1576220429830.png) 
+![1576220429830](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576220429830.png) 
 
 列表上方的分页：
 
-![1576220481597](图片二/1576220481597.png) 
+![1576220481597](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576220481597.png) 
 
 列表下方的分页，项目一已经做过了，这块纯前端的js就可以搞定，我们就不浪费时间在这里了，另外，讲义里有详细的实现代码，大家有兴趣，可以按照讲义去好好实现以下即可。
 
@@ -1198,21 +1198,21 @@ public class SearchService {
 
 我们打开search.html页面，找到列表上面分页部分的代码，然后展示从后台返回的分页数据，如下：
 
-![1576221314000](图片二/1576221314000.png) 
+![1576221314000](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576221314000.png) 
 
 分页数据在我们的请求中已经返回了，现在来展示它们：
 
 展示代码：
 
-![1576222300529](图片二/1576222300529.png) 
+![1576222300529](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576222300529.png) 
 
 在methods中添加两个方法，分别对应上一页和下一页的事件：
 
-![1576222436041](图片二/1576222436041.png) 
+![1576222436041](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576222436041.png) 
 
 页面的效果如下：
 
-![page](图片二/page.gif) 
+![page](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/page.gif) 
 
 
 
@@ -1224,11 +1224,11 @@ public class SearchService {
 
 现在要做分页，也就是说当查询条件的page改变的时候，向后台发送请求即可，在之前我们学过vue的监听事件：watch，那么现在我们就用监听事件来完成这个分页的动作。
 
-![1576224935074](图片二/1576224935074.png) 
+![1576224935074](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1576224935074.png) 
 
 修改完代码，我们查看页面是否真的分页查询了：
 
-![1576224935075](图片二/pageNo.gif)
+![1576224935075](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/pageNo.gif)
 
 ok了，点击下一页或者上一页，请求都已经发送到后台并且正确返回我们要的数据。
 

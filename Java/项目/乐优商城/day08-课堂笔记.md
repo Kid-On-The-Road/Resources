@@ -41,7 +41,7 @@
 
 首先看下页面要实现的效果：
 
-![1526725119663](图片/1526725119663.png)
+![1526725119663](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1526725119663.png)
 
 整个过滤部分有3块：
 
@@ -149,17 +149,17 @@ loadFilterParams(){
 
 在created钩子函数中，在查询商品数据的之后，调用这个方法：
 
-![1576465586185](图片/1576465586185.png) 
+![1576465586185](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576465586185.png) 
 
 
 
 编写完成之后我们打开浏览器，看一下请求是否已经发送到后台：
 
-![1576466158053](图片/1576466158053.png) 
+![1576466158053](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576466158053.png) 
 
 请求参数和路径都没有问题了，而且特殊请求的预检OPTIONS请求也成功发送了：
 
-![1576466249412](图片/1576466249412.png) 
+![1576466249412](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576466249412.png) 
 
 好了，请求已经成功发出了。
 
@@ -216,7 +216,7 @@ GET _search
 
 执行结果：
 
-![1576469539622](图片/1576469539622.png) 
+![1576469539622](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576469539622.png) 
 
 
 
@@ -250,7 +250,7 @@ GET _search
 
 来看下页面的展示效果：
 
- ![1526742664217](图片/1526742664217.png)
+ ![1526742664217](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1526742664217.png)
 
 虽然分类、品牌等过滤内容都不太一样，但是结构相似，都是key和value的结构。
 
@@ -355,7 +355,7 @@ private void handlerBrandTerm(Terms brandTerm, Map<String, List<?>> filterParam)
 
 ### 4）测试
 
-![1576482078958](图片/1576482078958.png) 
+![1576482078958](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576482078958.png) 
 
 
 
@@ -369,7 +369,7 @@ private void handlerBrandTerm(Terms brandTerm, Map<String, List<?>> filterParam)
 
 在data中定义接收数据的对象，然后在请求回调中给它赋值，赋值完成后就可以渲染了。
 
-![1576482796120](图片/1576482796120.png) 
+![1576482796120](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576482796120.png) 
 
 
 
@@ -421,11 +421,11 @@ private void handlerBrandTerm(Terms brandTerm, Map<String, List<?>> filterParam)
 
 为了好看，我们把css样式的某段注释代码放开，如下图的样式代码：
 
-![1576485079624](图片/1576485079624.png) 
+![1576485079624](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576485079624.png) 
 
 然后查看页面，看看效果即可：
 
-![1576485181311](图片/1576485181311.png) 
+![1576485181311](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576485181311.png) 
 
 
 
@@ -604,7 +604,7 @@ private void addSpecParamFilter(List<Long> catagoryIds, MatchQueryBuilder buildS
 
 ### 3）测试
 
-![1576550667269](图片/1576550667269.png) 
+![1576550667269](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576550667269.png) 
 
 
 
@@ -932,21 +932,21 @@ public class SearchService {
 
 刷新页面，出事了：
 
-![1576551172897](图片/1576551172897.png) 
+![1576551172897](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576551172897.png) 
 
 除了分类和品牌外，其它的规格过滤项没有正常显示出数据，为什么呢？
 
 原因是待选项的格式不同：
 
-![1576551525699](图片/1576551525699.png) 
+![1576551525699](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576551525699.png) 
 
 我们需要略做处理：
 
-![1576551635876](图片/1576551635876.png) 
+![1576551635876](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576551635876.png) 
 
 修改完成之后，刷新页面：
 
-![1576551690320](图片/1576551690320.png) 
+![1576551690320](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576551690320.png) 
 
 完美！
 
@@ -968,19 +968,19 @@ public class SearchService {
 
 ### 1）在data中定义一个变量用于控制按钮
 
-![1576551896824](图片/1576551896824.png) 
+![1576551896824](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576551896824.png) 
 
 ### 2）给按钮绑定事件
 
-![1576552101226](图片/1576552101226.png) 
+![1576552101226](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576552101226.png) 
 
 ### 3）控制显示的数量
 
-![1576552763576](图片/1576552763576.png) 
+![1576552763576](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576552763576.png) 
 
 ### 4）测试
 
-![3](图片/3.gif) 
+![3](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/3.gif) 
 
 
 
@@ -1010,7 +1010,7 @@ ok，完美搞定了！
 
 我们把已选择的过滤项保存在search中，因为不确定用户会选中几个，会选中什么，所以我们用一个对象（Map）来保存可能被选中的键值对：
 
-![1576553838311](图片/1576553838311.png) 
+![1576553838311](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576553838311.png) 
 
 要注意，在created构造函数中会对search进行初始化，可能会覆盖filters的值，所以我们在created函数中把浏览器url的search部分的内容重新放入data的search参数中：
 
@@ -1044,7 +1044,7 @@ created(){
 
 给所有的过滤项绑定点击事件：
 
-![1576564554582](图片/1576564554582.png) 
+![1576564554582](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576564554582.png) 
 
 要注意，点击事件传2个参数：
 
@@ -1068,7 +1068,7 @@ selectFilter(k, v){
 
 我们刷新页面，点击后通过浏览器功能查看`search.filter`的属性变化：
 
-![1576576327470](图片/1576576327470.png) 
+![1576576327470](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576576327470.png) 
 
 并且，此时浏览器地址也发生了变化：
 
@@ -1109,7 +1109,7 @@ watch: {
 
 我们添加完watch事件后，点击过滤参数，请求正常发出了：
 
-![1576576684685](图片/1576576684685.png) 
+![1576576684685](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576576684685.png) 
 
 
 
@@ -1155,7 +1155,7 @@ watch: {
 
 我们需要在请求类：`SearchRequest`中添加属性，接收过滤属性。过滤属性都是键值对格式，但是key不确定，所以用一个map来接收即可。
 
-![1576577183196](图片/1576577183196-1579044366829.png) 
+![1576577183196](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576577183196-1579044366829.png) 
 
 
 
@@ -1273,15 +1273,15 @@ private QueryBuilder buildSearchKey(SearchRequest request) {
 
 其他不变，然后我们重启微服务测试，打开页面，我们先不点击过滤条件，直接搜索手机：
 
-![1576580663898](图片/1576580663898-1579044366831.png) 
+![1576580663898](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576580663898-1579044366831.png) 
 
 总共181条，接下来，我们点击一个过滤条件：
 
-![1576580939931](图片/1576580939931-1579044366831.png) 
+![1576580939931](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576580939931-1579044366831.png) 
 
 得到结果：
 
-![1576580974950](图片/1576580974950-1579044366831.png) 
+![1576580974950](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576580974950-1579044366831.png) 
 
 
 
@@ -1324,7 +1324,7 @@ computed: {
 
 加入了计算属性之后，我们的遍历代码，也要修改：
 
-![1576581884144](图片/1576581884144-1579044366832.png) 
+![1576581884144](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片/1576581884144-1579044366832.png) 
 
 然后测试，ok了！
 

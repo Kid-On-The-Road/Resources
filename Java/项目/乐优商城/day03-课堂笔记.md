@@ -40,7 +40,7 @@
 
 先看看我们要实现的效果：
 
-![1575269537052](图片二/1575269537052-1578195702430.png) 
+![1575269537052](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575269537052-1578195702430.png) 
 
 接下来，我们从0开始，实现下从前端到后端的完整开发。
 
@@ -48,7 +48,7 @@
 
 为了方便看到效果，我们新建一个MyBrand.vue，从0开始搭建。
 
-![1575269627152](图片二/1575269627152-1578195702430.png) 
+![1575269627152](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575269627152-1578195702430.png) 
 
 内容初始化一下：
 
@@ -72,15 +72,15 @@
 
 改变router新的index.js，将路由地址指向MyBrand.vue
 
-![1575269906245](图片二/1575269906245-1578195702508.png) 
+![1575269906245](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575269906245-1578195702508.png) 
 
 在menu.js中添加菜单：
 
-![1575270828528](图片二/1575270828528-1578195702509.png) 
+![1575270828528](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575270828528-1578195702509.png) 
 
 打开页面点击“我的品牌”，如下：
 
-![1575270993683](图片二/1575270993683-1578195702519.png) 
+![1575270993683](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575270993683-1578195702519.png) 
 
 
 
@@ -104,7 +104,7 @@ ok，页面出来了。
 
 大家看到这个原型页面肯定能看出，其主体就是一个table。我们去Vuetify查看有关table的文档：
 
-![1526023540226](图片二/1526023540226-1578195702509.png)
+![1526023540226](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526023540226-1578195702509.png)
 
 仔细阅读，发现`v-data-table`中有以下核心属性：
 
@@ -154,7 +154,7 @@ ok，页面出来了。
 
 找到这样一条：
 
-![1526023837773](图片二/1526023837773-1578195702519.png)
+![1526023837773](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526023837773-1578195702519.png)
 
 其它的案例都是由Vuetify帮我们对查询到的当前页数据进行排序和分页，这显然不是我们想要的。我们希望能在服务端完成对整体品牌数据的排序和分页，而这个案例恰好合适。
 
@@ -218,7 +218,7 @@ ok，页面出来了。
 
 - loading：boolean类型，true：代表数据正在加载，会有进度条。false：数据加载完毕。
 
-  ![1526029254159](图片二/1526029254159-1578195702520.png)
+  ![1526029254159](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526029254159-1578195702520.png)
 
 
 
@@ -263,13 +263,13 @@ slot-scope="props"   给迭代数据起个别名
 
 ### 3）修改表头信息
 
-![1575273957260](图片二/1575273957260-1578195702520.png) 
+![1575273957260](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575273957260-1578195702520.png) 
 
 ### 4）修改显示数据
 
 数据加载流程，详见课堂画图：
 
-![1575276433829](图片二/1575276433829-1578195702521.png) 
+![1575276433829](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575276433829-1578195702521.png) 
 
 我们先弄点假品牌数据，可以参考数据库表：
 
@@ -287,7 +287,7 @@ slot-scope="props"   给迭代数据起个别名
 
 刷新页面查看：
 
-![1526029445561](图片二/1526029445561-1578195702521.png)
+![1526029445561](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1526029445561-1578195702521.png)
 
 注意，**我们上面提供的假数据，因此大家的页面可能看不到图片信息！**
 
@@ -301,7 +301,7 @@ slot-scope="props"   给迭代数据起个别名
 
 从vuetify文档中找到按钮和搜索框，样式如下图：
 
-![1575278930253](图片二/1575278930253-1578195702521.png) 
+![1575278930253](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575278930253-1578195702521.png) 
 
 在table上面加入如下代码：
 
@@ -339,7 +339,7 @@ slot-scope="props"   给迭代数据起个别名
 
 我们在data中定义一个searchKey属性，使用v-model绑定到搜索框中
 
-![1575280607235](图片二/1575280607235.png) 
+![1575280607235](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575280607235.png) 
 
 
 
@@ -442,7 +442,7 @@ slot-scope="props"   给迭代数据起个别名
 
 我们把源代码都已经删除了很多，在data中的pagination是空对象，但是我们用vue的chrome插件查看页面的数据发现，里面都已经包含了所有的分页条件，如下：
 
-![1575283525398](图片二/1575283525398.png) 
+![1575283525398](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575283525398.png) 
 
 条件如下：
 
@@ -462,11 +462,11 @@ slot-scope="props"   给迭代数据起个别名
 
 ### 1）查看接口文档
 
-![1575283960577](图片二/1575283960577.png) 
+![1575283960577](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575283960577.png) 
 
 品牌列表接口
 
-![1575284045719](图片二/1575284045719.png) 
+![1575284045719](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575284045719.png) 
 
 
 
@@ -492,7 +492,7 @@ this.$http.get("/item/brand/page",{
 
 ### 3）查看浏览器控制台请求是否已经发出
 
-![1575284918441](图片二/1575284918441.png) 
+![1575284918441](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575284918441.png) 
 
 从上图可知，报了404的错，说明我们的请求已经发出了，路径和参数都有了，只是后台还没有接口而已。
 
@@ -534,7 +534,7 @@ watch: {
 
 课堂代码：
 
-![1578363914515](图片二/1578363914515.png) 
+![1578363914515](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1578363914515.png) 
 
 **课堂代码：**
 
@@ -664,7 +664,7 @@ watch: {
 
 
 
-![1578363982509](图片二/1578363982509.png) 
+![1578363982509](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1578363982509.png) 
 
 
 
@@ -693,7 +693,7 @@ watch: {
 
 ### 2）品牌POJO对象
 
-![1575341037866](图片二/1575341037866.png) 
+![1575341037866](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575341037866.png) 
 
 ```java
 /**
@@ -885,7 +885,7 @@ public class BrandService {
 
 重启微服务，然后在页面测试，就可以看到效果了：
 
-![1575362674988](图片二/1575362674988.png) 
+![1575362674988](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575362674988.png) 
 
 注意，图片显示的地方需要修改一下，否则图片显示不了
 
@@ -1025,13 +1025,13 @@ public class BrandService {
 
 品牌查询已经做好了，那么新增品牌我们直接在Brand.vue文件中开发即可。
 
-![1575365293099](图片二/1575365293099.png) 
+![1575365293099](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575365293099.png) 
 
 品牌数据如何添加？ 除了自己的数据，还有无其他数据？
 
 之前分析过品牌表和分类表是多对多，分类的数据，一般变动的比较少，所以中间表我们一般让变动比较多的品牌表来维护，也就是说我们添加完品牌数据，还需要在中间表添加数据。
 
-![1575365502869](图片二/1575365502869.png) 
+![1575365502869](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575365502869.png) 
 
 
 
@@ -1056,11 +1056,11 @@ public class BrandService {
 
 除了中间表的数据之外，还有一个特殊的数据，就是图片了：
 
-![1575365648975](图片二/1575365648975.png) 
+![1575365648975](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575365648975.png) 
 
 填写基本信息，此时，点击提交按钮，可以看到页面已经发出请求：
 
-![1552139565844](图片二/1552139565844.png) 
+![1552139565844](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1552139565844.png) 
 
 
 
@@ -1152,7 +1152,7 @@ public interface BrandMapper extends Mapper<Brand> {
 
 在resource下新建一个目录：`mappers`，并在下面新建文件：`BrandMapper.xml`
 
- ![1552143745932](图片二/1552143745932.png) 
+ ![1552143745932](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1552143745932.png) 
 
 然后在`application.yml`文件中配置mapper文件的地址：
 
@@ -1222,11 +1222,11 @@ mybatis:
 
 这三要素指的是form表单，我们的vue中没有这个表单，所以我们换一种方式，也就是做一个Vue的文件上传插件来实现文件上传，但是如果我们自己去开发这个插件，那会浪费很多时间，所以我们找一个现成的，直接放到项目中就可以用了，我们只需要看懂即可，关于这个文件上传插件的开发大家可以参考这个文件：
 
-![1575424402339](图片二/1575424402339.png) 
+![1575424402339](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575424402339.png) 
 
 看这个文章的这一项：
 
-![1575424714898](图片二/1575424714898.png) 
+![1575424714898](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575424714898.png) 
 
 
 
@@ -1266,7 +1266,7 @@ mybatis:
 
 ### 2）创建module
 
-![1552144636424](图片二/1552144636424.png)
+![1552144636424](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1552144636424.png)
 
 
 
@@ -1357,7 +1357,7 @@ public class LyUploadApplication {
 
 结构：
 
-![1552144792255](图片二/1552144792255.png) 
+![1552144792255](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1552144792255.png) 
 
 
 
@@ -1375,7 +1375,7 @@ public class LyUploadApplication {
 
 点击新增品牌页面的上传图片按钮，即可看到上传图片请求：
 
-![1552144440922](图片二/1552144440922.png)
+![1552144440922](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1552144440922.png)
 
 
 
@@ -1466,11 +1466,11 @@ public class UploadService {
 
 启动上传文件微服务和网关微服务，然后打开页面测试：
 
-![1575428085329](图片二/1575428085329.png) 
+![1575428085329](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575428085329.png) 
 
 图片回显路径：
 
-![1575428303757](图片二/1575428303757.png) 
+![1575428303757](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1575428303757.png) 
 
 由此可见我们的文件上传功能基本实现了。
 
@@ -1482,7 +1482,7 @@ public class UploadService {
 
 ## 16、课程总结
 
-![1578373354087](图片二/1578373354087.png) 
+![1578373354087](https://raw.githubusercontent.com/Kid-On-The-Road/Resources/main/笔记图片/乐优商城/图片二/1578373354087.png) 
 
 
 
