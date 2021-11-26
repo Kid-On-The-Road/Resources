@@ -156,7 +156,7 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <ServerPrinter/>
 </ReportWebAttr>
 <ElementCaseMobileAttr>
-<ElementCaseMobileAttrProvider horizontal="1" vertical="1" zoom="true" refresh="false" isUseHTML="false" isMobileCanvasSize="false" appearRefresh="false" allowFullScreen="false"/>
+<ElementCaseMobileAttrProvider horizontal="1" vertical="1" zoom="true" refresh="false" isUseHTML="false" isMobileCanvasSize="false" appearRefresh="false" allowFullScreen="false" allowDoubleClickOrZoom="true" functionalWhenUnactivated="false"/>
 </ElementCaseMobileAttr>
 <Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
 <ReportPageAttr>
@@ -170,7 +170,7 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <RowHeight defaultValue="723900">
 <![CDATA[723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
 <ColumnWidth defaultValue="2743200">
-<![CDATA[3467100,10477500,2857500,1181100,1371600,2857500,2857500,1219200,2743200,2743200,2743200]]></ColumnWidth>
+<![CDATA[3467100,10477500,2857500,838200,1104900,2857500,2857500,1219200,2743200,2743200,2743200]]></ColumnWidth>
 <CellElementList>
 <C c="0" r="0" rs="2" s="0">
 <O>
@@ -297,6 +297,8 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <O t="DSColumn">
 <Attributes dsName="feeRule" columnName="TOTAL_WT"/>
 <Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
 <CNAME>
 <![CDATA[AGENT_CODE]]></CNAME>
 <Compare op="0">
@@ -319,6 +321,8 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <O t="DSColumn">
 <Attributes dsName="feeRule" columnName="FEE"/>
 <Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
 <CNAME>
 <![CDATA[AGENT_CODE]]></CNAME>
 <Compare op="0">
@@ -426,14 +430,15 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <PrivilegeControl/>
 </Report>
 <ReportParameterAttr>
-<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true"/>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true" currentIndex="4"/>
 <PWTitle>
 <![CDATA[参数]]></PWTitle>
 <ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
 <Parameters/>
 <Layout class="com.fr.form.ui.container.WParameterLayout">
 <WidgetName name="para"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Margin top="0" left="0" bottom="0" right="0"/>
@@ -452,7 +457,8 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.ComboBox">
 <WidgetName name="agentCode"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Dictionary class="com.fr.data.impl.TableDataDictionary">
@@ -474,7 +480,8 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.Label">
 <WidgetName name="LabelagentCode"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <widgetValue>
@@ -491,7 +498,8 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <InnerWidget class="com.fr.form.parameter.FormSubmitButton">
 <WidgetName name="Search"/>
 <LabelName name="代理人代码:"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Text>
@@ -505,7 +513,8 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <InnerWidget class="com.fr.form.ui.ComboBox">
 <WidgetName name="billDate"/>
 <LabelName name="billDate:"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Dictionary class="com.fr.data.impl.TableDataDictionary">
@@ -528,7 +537,8 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <InnerWidget class="com.fr.form.ui.Label">
 <WidgetName name="LabelbillDate"/>
 <LabelName name="agentCode:"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <widgetValue>
@@ -541,12 +551,15 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 </InnerWidget>
 <BoundsAttr x="63" y="25" width="80" height="21"/>
 </Widget>
+<ShowBookmarks showBookmarks="false"/>
 <Sorted sorted="false"/>
 <MobileWidgetList>
 <Widget widgetName="billDate"/>
 <Widget widgetName="agentCode"/>
 <Widget widgetName="Search"/>
 </MobileWidgetList>
+<FrozenWidgets/>
+<MobileBookMarkStyle class="com.fr.form.ui.mobile.impl.DefaultMobileBookMarkStyle"/>
 <Display display="true"/>
 <DelayDisplayContent delay="true"/>
 <UseParamsTemplate use="true"/>
@@ -563,6 +576,7 @@ group by AGENT_CODE,cec.AGENT_FULL_NAME, cec.AGENT_SHORT_NAME]]></Query>
 <NameTag name="billDate" tag="billDate:"/>
 </WidgetNameTagMap>
 <ParamAttr class="com.fr.report.mobile.DefaultMobileParamStyle"/>
+<ParamStyle class="com.fr.report.mobile.EmptyMobileParamStyle"/>
 </Layout>
 <DesignAttr width="960" height="80"/>
 </ParameterUI>
