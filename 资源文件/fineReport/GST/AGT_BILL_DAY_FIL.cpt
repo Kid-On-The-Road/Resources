@@ -42,6 +42,8 @@ order by BILL_DATE]]></Query>
 <O t="DSColumn">
 <Attributes dsName="agtBillDay" columnName="BILL_DATE"/>
 <Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
 <CNAME>
 <![CDATA[BILL_DATE]]></CNAME>
 <Compare op="10">

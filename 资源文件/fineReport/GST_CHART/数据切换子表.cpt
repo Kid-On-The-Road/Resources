@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+<TableDataMap>
+<TableData name="基础" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="feeDsc"/>
+<O>
+<![CDATA[安检费]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="billDate"/>
+<O>
+<![CDATA[201511]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctas]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select
+       FEE_DSC                              费用规则,
+       FEE_RULE_DSC                         费用规则描述,
+       sum(TOTAL_WT) 重量,
+       sum(fee)费用
+from CTAS_FLT_BILL_DAY
+where FK_FLT_RATE_ID != -1
+and FEE_DSC = '${feeDsc}'
+and to_char(to_date(BILL_DATE,'yyyyMMdd'),'yyyyMM') = '${billDate}'
+group by FEE_RULE_DSC, FEE_DSC
+]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<ServerPrinter/>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.button.page.First">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Fine-Engine_Report_ReportServerP_First')}]]></Text>
+<Hotkeys>
+<![CDATA[]]></Hotkeys>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Previous">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Fine-Engine_Report_ReportServerP_Previous')}]]></Text>
+<Hotkeys>
+<![CDATA[]]></Hotkeys>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.PageNavi">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Next">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Fine-Engine_ReportServerP_Next')}]]></Text>
+<Hotkeys>
+<![CDATA[]]></Hotkeys>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Last">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Fine-Engine_Report_ReportServerP_Last')}]]></Text>
+<Hotkeys>
+<![CDATA[]]></Hotkeys>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.NewPrint">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Fine-Engine_Print')}]]></Text>
+<Hotkeys>
+<![CDATA[]]></Hotkeys>
+<IconName>
+<![CDATA[print]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.Export">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<Hotkeys>
+<![CDATA[]]></Hotkeys>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+<Widget class="com.fr.report.web.button.Email">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Fine-Engine_Report_Email')}]]></Text>
+<Hotkeys>
+<![CDATA[]]></Hotkeys>
+<IconName>
+<![CDATA[email]]></IconName>
+<EmailButton customConsignee="true" consigneeByDepartment="false" consigneeByRole="false"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="true" showAsImage="false" autoScale="false" tdHeavy="false"/>
+</WebPageContent>
+</ReportWebAttr>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[7010400,2743200,3581400,4229100,9677400,7772400,2743200,2743200,14782800,2743200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="9" rs="38">
+<O t="CC">
+<LayoutAttr selectedIndex="0"/>
+<ChangeAttr enable="false" changeType="button" timeInterval="5" buttonColor="-6710887" carouselColor="-8421505" showArrow="true">
+<TextAttr>
+<Attr alignText="0" predefinedStyle="false">
+<FRFont name="PingFangSC-Regular" style="0" size="96" foreground="-1"/>
+</Attr>
+</TextAttr>
+</ChangeAttr>
+<Chart name="默认" chartClass="com.fr.plugin.chart.vanchart.VanChart">
+<Chart class="com.fr.plugin.chart.vanchart.VanChart">
+<GI>
+<AttrBackground>
+<Background name="NullBackground"/>
+<Attr gradientType="normal" gradientStartColor="-12146441" gradientEndColor="-9378161" shadow="false" autoBackground="false" predefinedStyle="false"/>
+</AttrBackground>
+<AttrBorder>
+<Attr lineStyle="0" isRoundBorder="false" roundRadius="0"/>
+<newColor borderColor="-1118482" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+<AttrAlpha>
+<Attr alpha="1.0"/>
+</AttrAlpha>
+</GI>
+<ChartAttr isJSDraw="true" isStyleGlobal="false"/>
+<Title4VanChart>
+<Title>
+<GI>
+<AttrBackground>
+<Background name="NullBackground"/>
+<Attr gradientType="normal" gradientStartColor="-12146441" gradientEndColor="-9378161" shadow="false" autoBackground="false" predefinedStyle="false"/>
+</AttrBackground>
+<AttrBorder>
+<Attr lineStyle="0" isRoundBorder="false" roundRadius="0"/>
+<newColor borderColor="-6908266" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+<AttrAlpha>
+<Attr alpha="1.0"/>
+</AttrAlpha>
+</GI>
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=$feeDsc+"月货量统计"+$billDate]]></Attributes>
+</O>
+<TextAttr>
+<Attr alignText="0" predefinedStyle="false">
+<FRFont name="微软雅黑" style="0" size="128" foreground="-13421773"/>
+</Attr>
+</TextAttr>
+<TitleVisible value="true" position="0"/>
+</Title>
+<Attr4VanChart useHtml="false" floating="false" x="0.0" y="0.0" limitSize="false" maxHeight="15.0"/>
+</Title4VanChart>
+<Plot class="com.fr.plugin.chart.PiePlot4VanChart">
+<VanChartPlotVersion version="20170715"/>
+<GI>
+<AttrBackground>
+<Background name="NullBackground"/>
+<Attr gradientType="normal" gradientStartColor="-12146441" gradientEndColor="-9378161" shadow="false" autoBackground="false" predefinedStyle="false"/>
+</AttrBackground>
+<AttrBorder>
+<Attr lineStyle="0" isRoundBorder="false" roundRadius="0"/>
+<newColor borderColor="-1118482" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+<AttrAlpha>
+<Attr alpha="1.0"/>
+</AttrAlpha>
+</GI>
+<Attr isNullValueBreak="true" autoRefreshPerSecond="6" seriesDragEnable="false" plotStyle="4" combinedSize="50.0"/>
+<newHotTooltipStyle>
+<AttrContents>
+<Attr showLine="false" position="1" isWhiteBackground="true" isShowMutiSeries="false" seriesLabel="${VALUE}"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##]]></Format>
+<PercentFormat>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#0.##%]]></Format>
+</PercentFormat>
+</AttrContents>
+</newHotTooltipStyle>
+<ConditionCollection>
+<DefaultAttr class="com.fr.chart.chartglyph.ConditionAttr">
+<ConditionAttr name="">
+<AttrList>
+<Attr class="com.fr.plugin.chart.base.AttrTooltip">
+<AttrTooltip>
+<Attr enable="true" duration="4" followMouse="false" showMutiSeries="false" isCustom="false"/>
+<TextAttr>
+<Attr alignText="0" predefinedStyle="false"/>
+</TextAttr>
+<AttrToolTipContent>
+<TextAttr>
+<Attr alignText="0" predefinedStyle="false"/>
+</TextAttr>
+<richText class="com.fr.plugin.chart.base.AttrTooltipRichText">
+<AttrTooltipRichText>
+<Attr content="" isAuto="true" initParamsContent=""/>
+<params>
+<![CDATA[{}]]></params>
+</AttrTooltipRichText>
+</richText>
+<richTextValue class="com.fr.plugin.chart.base.format.AttrTooltipValueFormat">
+<AttrTooltipValueFormat>
+<Attr enable="true"/>
+</AttrTooltipValueFormat>
+</richTextValue>
+<richTextPercent class="com.fr.plugin.chart.base.format.AttrTooltipPercentFormat">
+<AttrTooltipPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipPercentFormat>
+</richTextPercent>
+<richTextCategory class="com.fr.plugin.chart.base.format.AttrTooltipCategoryFormat">
+<AttrToolTipCategoryFormat>
+<Attr enable="true"/>
+</AttrToolTipCategoryFormat>
+</richTextCategory>
+<richTextSeries class="com.fr.plugin.chart.base.format.AttrTooltipSeriesFormat">
+<AttrTooltipSeriesFormat>
+<Attr enable="true"/>
+</AttrTooltipSeriesFormat>
+</richTextSeries>
+<richTextChangedPercent class="com.fr.plugin.chart.base.format.AttrTooltipChangedPercentFormat">
+<AttrTooltipChangedPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipChangedPercentFormat>
+</richTextChangedPercent>
+<richTextChangedValue class="com.fr.plugin.chart.base.format.AttrTooltipChangedValueFormat">
+<AttrTooltipChangedValueFormat>
+<Attr enable="false"/>
+</AttrTooltipChangedValueFormat>
+</richTextChangedValue>
+<TableFieldCollection/>
+<Attr isCommon="true" isCustom="false" isRichText="false" richTextAlign="left" showAllSeries="false"/>
+<value class="com.fr.plugin.chart.base.format.AttrTooltipValueFormat">
+<AttrTooltipValueFormat>
+<Attr enable="true"/>
+</AttrTooltipValueFormat>
+</value>
+<percent class="com.fr.plugin.chart.base.format.AttrTooltipPercentFormat">
+<AttrTooltipPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipPercentFormat>
+</percent>
+<category class="com.fr.plugin.chart.base.format.AttrTooltipCategoryFormat">
+<AttrToolTipCategoryFormat>
+<Attr enable="true"/>
+</AttrToolTipCategoryFormat>
+</category>
+<series class="com.fr.plugin.chart.base.format.AttrTooltipSeriesFormat">
+<AttrTooltipSeriesFormat>
+<Attr enable="true"/>
+</AttrTooltipSeriesFormat>
+</series>
+<changedPercent class="com.fr.plugin.chart.base.format.AttrTooltipChangedPercentFormat">
+<AttrTooltipChangedPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipChangedPercentFormat>
+</changedPercent>
+<changedValue class="com.fr.plugin.chart.base.format.AttrTooltipChangedValueFormat">
+<AttrTooltipChangedValueFormat>
+<Attr enable="false"/>
+</AttrTooltipChangedValueFormat>
+</changedValue>
+<HtmlLabel customText="" useHtml="false" isCustomWidth="false" isCustomHeight="false" width="50" height="50"/>
+</AttrToolTipContent>
+<GI>
+<AttrBackground>
+<Background name="ColorBackground" color="-16777216"/>
+<Attr gradientType="normal" gradientStartColor="-12146441" gradientEndColor="-9378161" shadow="true" autoBackground="false" predefinedStyle="false"/>
+</AttrBackground>
+<AttrBorder>
+<Attr lineStyle="0" isRoundBorder="false" roundRadius="2"/>
+<newColor borderColor="-16777216" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+<AttrAlpha>
+<Attr alpha="0.5"/>
+</AttrAlpha>
+</GI>
+</AttrTooltip>
+</Attr>
+<Attr class="com.fr.chart.base.AttrBorder">
+<AttrBorder>
+<Attr lineStyle="1" isRoundBorder="false" roundRadius="0"/>
+<newColor borderColor="-1" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+</Attr>
+</AttrList>
+</ConditionAttr>
+</DefaultAttr>
+</ConditionCollection>
+<Legend4VanChart>
+<Legend>
+<GI>
+<AttrBackground>
+<Background name="NullBackground"/>
+<Attr gradientType="normal" gradientStartColor="-12146441" gradientEndColor="-9378161" shadow="false" autoBackground="false" predefinedStyle="false"/>
+</AttrBackground>
+<AttrBorder>
+<Attr lineStyle="0" isRoundBorder="false" roundRadius="0"/>
+<newColor borderColor="-3355444" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+<AttrAlpha>
+<Attr alpha="1.0"/>
+</AttrAlpha>
+</GI>
+<Attr position="4" visible="true" predefinedStyle="false"/>
+<FRFont name="Microsoft YaHei" style="0" size="88" foreground="-10066330"/>
+</Legend>
+<Attr4VanChart floating="false" x="0.0" y="0.0" layout="aligned" customSize="false" maxHeight="30.0" isHighlight="true"/>
+</Legend4VanChart>
+<DataSheet>
+<GI>
+<AttrBackground>
+<Background name="NullBackground"/>
+<Attr gradientType="normal" gradientStartColor="-12146441" gradientEndColor="-9378161" shadow="false" autoBackground="false" predefinedStyle="false"/>
+</AttrBackground>
+<AttrBorder>
+<Attr lineStyle="1" isRoundBorder="false" roundRadius="0"/>
+<newColor borderColor="-16777216" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+<AttrAlpha>
+<Attr alpha="1.0"/>
+</AttrAlpha>
+</GI>
+<Attr isVisible="false" predefinedStyle="false"/>
+<FRFont name="SimSun" style="0" size="72"/>
+</DataSheet>
+<DataProcessor class="com.fr.base.chart.chartdata.model.NormalDataModel"/>
+<newPlotFillStyle>
+<AttrFillStyle>
+<AFStyle colorStyle="0"/>
+<FillStyleName fillStyleName=""/>
+<isCustomFillStyle isCustomFillStyle="false"/>
+<PredefinedStyle predefinedStyle="false"/>
+</AttrFillStyle>
+</newPlotFillStyle>
+<VanChartPlotAttr isAxisRotation="false" categoryNum="1"/>
+<GradientStyle>
+<Attr gradientType="gradual" startColor="-12146441" endColor="-9378161"/>
+</GradientStyle>
+<PieAttr4VanChart roseType="normal" startAngle="0.0" endAngle="360.0" innerRadius="0.0" supportRotation="false"/>
+<VanChartRadius radiusType="auto" radius="100"/>
+</Plot>
+<ChartDefinition>
+<OneValueCDDefinition seriesName="费用规则描述" valueName="费用" function="com.fr.data.util.function.SumFunction">
+<Top topCate="-1" topValue="-1" isDiscardOtherCate="false" isDiscardOtherSeries="false" isDiscardNullCate="false" isDiscardNullSeries="false"/>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[基础]]></Name>
+</TableData>
+<CategoryName value="无"/>
+</OneValueCDDefinition>
+</ChartDefinition>
+</Chart>
+<UUID uuid="36a4f686-e4d6-4548-b5b8-4483e0b20412"/>
+<tools hidden="true" sort="true" export="true" fullScreen="true"/>
+<VanChartZoom>
+<zoomAttr zoomVisible="false" zoomGesture="true" zoomResize="true" zoomType="xy" controlType="zoom" categoryNum="8" scaling="0.3"/>
+<from>
+<![CDATA[]]></from>
+<to>
+<![CDATA[]]></to>
+</VanChartZoom>
+<refreshMoreLabel>
+<attr moreLabel="false" autoTooltip="true"/>
+<AttrTooltip>
+<Attr enable="true" duration="4" followMouse="false" showMutiSeries="false" isCustom="false"/>
+<TextAttr>
+<Attr alignText="0" predefinedStyle="false"/>
+</TextAttr>
+<AttrToolTipContent>
+<TextAttr>
+<Attr alignText="0" predefinedStyle="false"/>
+</TextAttr>
+<richText class="com.fr.plugin.chart.base.AttrTooltipRichText">
+<AttrTooltipRichText>
+<Attr content="" isAuto="true" initParamsContent=""/>
+<params>
+<![CDATA[{}]]></params>
+</AttrTooltipRichText>
+</richText>
+<richTextValue class="com.fr.plugin.chart.base.format.AttrTooltipValueFormat">
+<AttrTooltipValueFormat>
+<Attr enable="true"/>
+</AttrTooltipValueFormat>
+</richTextValue>
+<richTextPercent class="com.fr.plugin.chart.base.format.AttrTooltipPercentFormat">
+<AttrTooltipPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipPercentFormat>
+</richTextPercent>
+<richTextCategory class="com.fr.plugin.chart.base.format.AttrTooltipCategoryFormat">
+<AttrToolTipCategoryFormat>
+<Attr enable="false"/>
+</AttrToolTipCategoryFormat>
+</richTextCategory>
+<richTextSeries class="com.fr.plugin.chart.base.format.AttrTooltipSeriesFormat">
+<AttrTooltipSeriesFormat>
+<Attr enable="false"/>
+</AttrTooltipSeriesFormat>
+</richTextSeries>
+<richTextChangedPercent class="com.fr.plugin.chart.base.format.AttrTooltipChangedPercentFormat">
+<AttrTooltipChangedPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipChangedPercentFormat>
+</richTextChangedPercent>
+<richTextChangedValue class="com.fr.plugin.chart.base.format.AttrTooltipChangedValueFormat">
+<AttrTooltipChangedValueFormat>
+<Attr enable="false"/>
+</AttrTooltipChangedValueFormat>
+</richTextChangedValue>
+<TableFieldCollection/>
+<Attr isCommon="true" isCustom="false" isRichText="false" richTextAlign="left" showAllSeries="false"/>
+<value class="com.fr.plugin.chart.base.format.AttrTooltipValueFormat">
+<AttrTooltipValueFormat>
+<Attr enable="true"/>
+</AttrTooltipValueFormat>
+</value>
+<percent class="com.fr.plugin.chart.base.format.AttrTooltipPercentFormat">
+<AttrTooltipPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipPercentFormat>
+</percent>
+<category class="com.fr.plugin.chart.base.format.AttrTooltipCategoryFormat">
+<AttrToolTipCategoryFormat>
+<Attr enable="true"/>
+</AttrToolTipCategoryFormat>
+</category>
+<series class="com.fr.plugin.chart.base.format.AttrTooltipSeriesFormat">
+<AttrTooltipSeriesFormat>
+<Attr enable="true"/>
+</AttrTooltipSeriesFormat>
+</series>
+<changedPercent class="com.fr.plugin.chart.base.format.AttrTooltipChangedPercentFormat">
+<AttrTooltipChangedPercentFormat>
+<Attr enable="false"/>
+<Format class="com.fr.base.CoreDecimalFormat" roundingMode="6">
+<![CDATA[#.##%]]></Format>
+</AttrTooltipChangedPercentFormat>
+</changedPercent>
+<changedValue class="com.fr.plugin.chart.base.format.AttrTooltipChangedValueFormat">
+<AttrTooltipChangedValueFormat>
+<Attr enable="true"/>
+</AttrTooltipChangedValueFormat>
+</changedValue>
+<HtmlLabel customText="" useHtml="false" isCustomWidth="false" isCustomHeight="false" width="50" height="50"/>
+</AttrToolTipContent>
+<GI>
+<AttrBackground>
+<Background name="ColorBackground" color="-1"/>
+<Attr gradientType="normal" gradientStartColor="-12146441" gradientEndColor="-9378161" shadow="false" autoBackground="false" predefinedStyle="false"/>
+</AttrBackground>
+<AttrBorder>
+<Attr lineStyle="1" isRoundBorder="false" roundRadius="4"/>
+<newColor borderColor="-15395563" autoColor="false" predefinedStyle="false"/>
+</AttrBorder>
+<AttrAlpha>
+<Attr alpha="0.8"/>
+</AttrAlpha>
+</GI>
+</AttrTooltip>
+</refreshMoreLabel>
+<ThemeAttr>
+<Attr darkTheme="false" predefinedStyle="false"/>
+</ThemeAttr>
+</Chart>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+<Background name="ColorBackground" color="-1"/>
+</ReportSettings>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true" currentIndex="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList/>
+<DesignerVersion DesignerVersion="KAA"/>
+<PreviewType PreviewType="1"/>
+<TemplateCloudInfoAttrMark class="com.fr.plugin.cloud.analytics.attr.TemplateInfoAttrMark" pluginID="com.fr.plugin.cloud.analytics.v10" plugin-version="2.3.6.20211125">
+<TemplateCloudInfoAttrMark createTime="1638173091764"/>
+</TemplateCloudInfoAttrMark>
+<TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
+<TemplateIdAttMark TemplateId="c811a5d0-f07e-475d-8b4e-f36cc30d00d6"/>
+</TemplateIdAttMark>
+</WorkBook>

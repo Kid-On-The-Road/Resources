@@ -375,17 +375,124 @@ and FK_AGT_RATE_ID != -1]]></Query>
 <RightList/>
 </Footer>
 </ReportAttrSet>
+<ReportWriteAttr>
+<SubmitVisitor class="com.fr.report.write.BuiltInSQLSubmiter">
+<Name>
+<![CDATA[内置SQL1]]></Name>
+<Attributes dsName="ctas"/>
+<DMLConfig class="com.fr.write.config.IntelliDMLConfig">
+<Table schema="CTAS" name="CTAS_AGT_BILL"/>
+<ColumnConfig name="REC_ID" isKey="true" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="AGENT_CODE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="AGENT_NAME" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="FK_AGT_RATE_ID" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="FEE_RULE_DSC" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="FEE_TYPE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="FEE_DSC" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="RATE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="TOTAL_WT" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="FEE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="BILL_NO" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="BILL_DATE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="DI" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="CARGO_MAIL_FLAG" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="EI" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="AIRPORT" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="OPE_STATION" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="REMARK" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="CREATE_OPE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="CREATE_NAME" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="CREATE_TIME" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="AGREE_TYPE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="ADJUST_FLAG" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+<ColumnConfig name="COMPANY_CODE" isKey="false" skipUnmodified="false">
+<O>
+<![CDATA[]]></O>
+</ColumnConfig>
+</DMLConfig>
+</SubmitVisitor>
+</ReportWriteAttr>
 <PrivilegeControl/>
 </Report>
 <ReportParameterAttr>
-<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true"/>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true" currentIndex="4"/>
 <PWTitle>
 <![CDATA[参数]]></PWTitle>
 <ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
 <Parameters/>
 <Layout class="com.fr.form.ui.container.WParameterLayout">
 <WidgetName name="para"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Margin top="0" left="0" bottom="0" right="0"/>
@@ -404,7 +511,8 @@ and FK_AGT_RATE_ID != -1]]></Query>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.ComboBox">
 <WidgetName name="billDate"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Dictionary class="com.fr.data.impl.FormulaDictionary">
@@ -421,7 +529,8 @@ and FK_AGT_RATE_ID != -1]]></Query>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.Label">
 <WidgetName name="LabelbillDate"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <widgetValue>
@@ -437,7 +546,8 @@ and FK_AGT_RATE_ID != -1]]></Query>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.parameter.FormSubmitButton">
 <WidgetName name="Search"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Text>
@@ -451,7 +561,8 @@ and FK_AGT_RATE_ID != -1]]></Query>
 <InnerWidget class="com.fr.form.ui.ComboBox">
 <WidgetName name="billCode"/>
 <LabelName name="代理人代码:"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Dictionary class="com.fr.data.impl.TableDataDictionary">
@@ -473,7 +584,8 @@ and FK_AGT_RATE_ID != -1]]></Query>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.Label">
 <WidgetName name="LabelbillCode"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="0.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <widgetValue>
@@ -486,12 +598,15 @@ and FK_AGT_RATE_ID != -1]]></Query>
 </InnerWidget>
 <BoundsAttr x="219" y="25" width="80" height="21"/>
 </Widget>
+<ShowBookmarks showBookmarks="false"/>
 <Sorted sorted="false"/>
 <MobileWidgetList>
 <Widget widgetName="billDate"/>
 <Widget widgetName="billCode"/>
 <Widget widgetName="Search"/>
 </MobileWidgetList>
+<FrozenWidgets/>
+<MobileBookMarkStyle class="com.fr.form.ui.mobile.impl.DefaultMobileBookMarkStyle"/>
 <Display display="true"/>
 <DelayDisplayContent delay="true"/>
 <UseParamsTemplate use="true"/>
@@ -506,6 +621,7 @@ and FK_AGT_RATE_ID != -1]]></Query>
 <NameTag name="billDate" tag="billDate:"/>
 </WidgetNameTagMap>
 <ParamAttr class="com.fr.report.mobile.DefaultMobileParamStyle"/>
+<ParamStyle class="com.fr.report.mobile.EmptyMobileParamStyle"/>
 </Layout>
 <DesignAttr width="960" height="80"/>
 </ParameterUI>

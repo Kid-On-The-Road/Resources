@@ -54,9 +54,9 @@ ORDER BY TO_CHAR(add_months(to_date('2015-11', 'yyyy-mm'), -(ROWNUM - 1)),'yyyym
 <ColumnPrivilegeControl/>
 <RowPrivilegeControl/>
 <RowHeight defaultValue="723900">
-<![CDATA[723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<![CDATA[723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
 <ColumnWidth defaultValue="2743200">
-<![CDATA[2743200,4572000,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
+<![CDATA[2743200,4572000,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
 <CellElementList>
 <C c="0" r="0" s="0">
 <O>
@@ -135,6 +135,10 @@ ORDER BY TO_CHAR(add_months(to_date('2015-11', 'yyyy-mm'), -(ROWNUM - 1)),'yyyym
 </O>
 <PrivilegeControl/>
 <Expand dir="0"/>
+</C>
+<C c="3" r="7">
+<PrivilegeControl/>
+<Expand/>
 </C>
 </CellElementList>
 <ReportAttrSet>
@@ -274,7 +278,7 @@ ORDER BY TO_CHAR(add_months(to_date('2015-11', 'yyyy-mm'), -(ROWNUM - 1)),'yyyym
 </StyleList>
 <DesignerVersion DesignerVersion="KAA"/>
 <PreviewType PreviewType="0"/>
-<TemplateCloudInfoAttrMark class="com.fr.plugin.cloud.analytics.attr.TemplateInfoAttrMark" pluginID="com.fr.plugin.cloud.analytics.v10" plugin-version="2.3.5.20211111">
+<TemplateCloudInfoAttrMark class="com.fr.plugin.cloud.analytics.attr.TemplateInfoAttrMark" pluginID="com.fr.plugin.cloud.analytics.v10" plugin-version="2.3.6.20211125">
 <TemplateCloudInfoAttrMark createTime="1637820764586"/>
 </TemplateCloudInfoAttrMark>
 <TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">

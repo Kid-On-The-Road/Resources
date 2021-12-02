@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170720" releaseVersion="10.0.0">
+<TableDataMap>
+<TableData name="基础" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="账期"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="公司ID"/>
+<O>
+<![CDATA[8Y]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctas]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select 
+       CARRIER 					    公司ID,
+       CARRIER_DSC                          公司名称,
+       CARRIER_DSC || '(' || CARRIER || ')' 公司名称ID,
+       FEE_DSC                              费用规则,
+       FEE_RULE_DSC                         费用规则描述,
+       sum(TOTAL_WT) 重量,
+       '￥'||sum(fee)费用
+from CTAS_FLT_BILL_DAY
+where FK_FLT_RATE_ID != -1
+${if(len(公司ID) == 0,"","and CARRIER = '" + 公司ID + "'")} 
+${if(len(账期) == 0,"","and bill_date like '" + 账期 +'%'+ "'")}
+group by FEE_RULE_DSC, FEE_DSC, CARRIER, CARRIER_DSC
+order by CARRIER]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="合计" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="账期"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="公司ID"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctas]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select
+       CARRIER 公司ID,
+       CARRIER_DSC 公司名称,
+       CARRIER_DSC || '(' || CARRIER || ')' 公司名称ID,
+       FEE_DSC                              费用规则,
+       '￥'||sum(fee)合计费用
+from CTAS_FLT_BILL_DAY
+where FK_FLT_RATE_ID != -1
+${if(len(公司ID) == 0,"","and CARRIER = '" + 公司ID + "'")} 
+${if(len(账期) == 0,"","and bill_date like '" + 账期 +'%'+ "'")}
+group by CARRIER, CARRIER_DSC,FEE_DSC
+order by CARRIER]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="小计" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="账期"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="公司ID"/>
+<O>
+<![CDATA[8Y]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctas]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select
+       CARRIER 公司ID,
+       CARRIER_DSC 公司名称,
+       CARRIER_DSC || '(' || CARRIER || ')' 公司名称ID,
+       '￥'||sum(fee)小计费用,
+       sum(TOTAL_WT) 小计重量
+from CTAS_FLT_BILL_DAY
+where FK_FLT_RATE_ID != -1
+${if(len(公司ID) == 0,"","and CARRIER = '" + 公司ID + "'")} 
+${if(len(账期) == 0,"","and bill_date like '" + 账期 +'%'+ "'")}
+group by CARRIER, CARRIER_DSC
+order by CARRIER]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="总计" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="账期"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="公司ID"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctas]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select
+       '￥'||sum(fee)总计费用,
+       sum(TOTAL_WT) 总计重量
+from CTAS_FLT_BILL_DAY
+where FK_FLT_RATE_ID != -1
+${if(len(公司ID) == 0,"","and CARRIER = '" + 公司ID + "'")} 
+${if(len(账期) == 0,"","and bill_date like '" + 账期 +'%'+ "'")}
+]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+<TableData name="账期" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[ctas]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT TO_CHAR(add_months(to_date('2015-11', 'yyyy-mm'), -(ROWNUM - 1)),'yyyymm') as bill_date
+FROM dual
+CONNECT BY ROWNUM <= 12
+ORDER BY TO_CHAR(add_months(to_date('2015-11', 'yyyy-mm'), -(ROWNUM - 1)),'yyyymm') desc
+]]></Query>
+<PageQuery>
+<![CDATA[]]></PageQuery>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[7010400,2743200,3581400,4229100,9677400,7772400,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0">
+<O>
+<![CDATA[公司名称]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="1" r="0" s="0">
+<O>
+<![CDATA[费用类型]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="2" r="0" s="0">
+<O>
+<![CDATA[收费项目]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="3" r="0" s="0">
+<O>
+<![CDATA[重量]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="4" r="0" s="0">
+<O>
+<![CDATA[总额]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="5" r="0" s="0">
+<O>
+<![CDATA[合计]]></O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" upParentDefault="false"/>
+</C>
+<C c="0" r="1" s="1">
+<O t="DSColumn">
+<Attributes dsName="基础" columnName="公司ID"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<NameJavaScriptGroup>
+<NameJavaScript name="网络报表1">
+<JavaScript class="com.fr.js.ReportletHyperlink">
+<JavaScript class="com.fr.js.ReportletHyperlink">
+<Parameters>
+<Parameter>
+<Attributes name="公司ID"/>
+<O t="XMLable" class="com.fr.base.Formula">
+<Attributes>
+<![CDATA[=A2]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+<TargetFrame>
+<![CDATA[_blank]]></TargetFrame>
+<Features width="600" height="400"/>
+<ReportletName extendParameters="true" showPI="true">
+<![CDATA[/GST_CHART/超链接子表.cpt&op=write]]></ReportletName>
+<Attr>
+<DialogAttr class="com.fr.js.ReportletHyperlinkDialogAttr">
+<O>
+<![CDATA[]]></O>
+<Location center="true"/>
+</DialogAttr>
+</Attr>
+</JavaScript>
+</JavaScript>
+</NameJavaScript>
+</NameJavaScriptGroup>
+<Expand dir="0" upParentDefault="false"/>
+</C>
+<C c="1" r="1" s="2">
+<O t="DSColumn">
+<Attributes dsName="基础" columnName="费用规则"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="1" s="2">
+<O t="DSColumn">
+<Attributes dsName="基础" columnName="费用规则描述"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" upParentDefault="false"/>
+</C>
+<C c="3" r="1" s="2">
+<O t="DSColumn">
+<Attributes dsName="基础" columnName="重量"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" upParentDefault="false"/>
+</C>
+<C c="4" r="1" s="2">
+<O t="DSColumn">
+<Attributes dsName="基础" columnName="费用"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" leftParentDefault="false" left="D2" upParentDefault="false"/>
+</C>
+<C c="5" r="1" s="2">
+<O t="DSColumn">
+<Attributes dsName="合计" columnName="合计费用"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[费用规则]]></CNAME>
+<Compare op="0">
+<ColumnRow column="1" row="1"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[公司名称ID]]></CNAME>
+<Compare op="0">
+<ColumnRow column="0" row="1"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.SummaryGrouper">
+<FN>
+<![CDATA[com.fr.data.util.function.NoneFunction]]></FN>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="B2" upParentDefault="false"/>
+</C>
+<C c="0" r="2" s="3">
+<O>
+<![CDATA[小计]]></O>
+<PrivilegeControl/>
+<Expand upParentDefault="false" up="A2"/>
+</C>
+<C c="1" r="2" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="小计" columnName="小计重量"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[公司名称ID]]></CNAME>
+<Compare op="0">
+<ColumnRow column="0" row="1"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" upParentDefault="false" up="A2"/>
+</C>
+<C c="4" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="小计" columnName="小计费用"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[公司名称ID]]></CNAME>
+<Compare op="0">
+<ColumnRow column="0" row="1"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" upParentDefault="false" up="A2"/>
+</C>
+<C c="5" r="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="小计" columnName="小计费用"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[公司名称ID]]></CNAME>
+<Compare op="0">
+<ColumnRow column="0" row="1"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" leftParentDefault="false" left="A2"/>
+</C>
+<C c="0" r="3" s="5">
+<O>
+<![CDATA[总计]]></O>
+<PrivilegeControl/>
+<Expand upParentDefault="false"/>
+</C>
+<C c="1" r="3" s="5">
+<PrivilegeControl/>
+<Expand upParentDefault="false"/>
+</C>
+<C c="2" r="3" s="5">
+<PrivilegeControl/>
+<Expand upParentDefault="false"/>
+</C>
+<C c="3" r="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="总计" columnName="总计重量"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" upParentDefault="false"/>
+</C>
+<C c="4" r="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="总计" columnName="总计费用"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" upParentDefault="false"/>
+</C>
+<C c="5" r="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="总计" columnName="总计费用"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" upParentDefault="false"/>
+</C>
+<C c="0" r="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+<Background name="ColorBackground" color="-1"/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true" currentIndex="5"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
+<Parameters/>
+<Layout class="com.fr.form.ui.container.WParameterLayout">
+<WidgetName name="para"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Margin top="0" left="0" bottom="0" right="0"/>
+<Border>
+<border style="0" color="-723724" borderRadius="0" type="0" borderStyle="0"/>
+<WidgetTitle>
+<O>
+<![CDATA[新建标题]]></O>
+<FRFont name="SimSun" style="0" size="72"/>
+<Position pos="0"/>
+</WidgetTitle>
+<Alpha alpha="1.0"/>
+</Border>
+<Background name="ColorBackground" color="-526086"/>
+<LCAttr vgap="0" hgap="0" compInterval="0"/>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.parameter.FormSubmitButton">
+<WidgetName name="Search"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[查询]]></Text>
+<Hotkeys>
+<![CDATA[enter]]></Hotkeys>
+</InnerWidget>
+<BoundsAttr x="400" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.ComboBox">
+<WidgetName name="公司ID"/>
+<LabelName name="公司ID:"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr kiName="公司ID" viName="公司ID"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[基础]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue>
+<O>
+<![CDATA[]]></O>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="295" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="Label公司ID"/>
+<LabelName name="公司名称:"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<widgetValue>
+<O>
+<![CDATA[公司ID:]]></O>
+</widgetValue>
+<LabelAttr verticalcenter="true" textalign="0" autoline="true"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<border style="0" color="-723724"/>
+</InnerWidget>
+<BoundsAttr x="215" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.ComboBox">
+<WidgetName name="账期"/>
+<LabelName name="账期:"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<Dictionary class="com.fr.data.impl.TableDataDictionary">
+<FormulaDictAttr kiName="BILL_DATE" viName="BILL_DATE"/>
+<TableDataDictAttr>
+<TableData class="com.fr.data.impl.NameTableData">
+<Name>
+<![CDATA[账期]]></Name>
+</TableData>
+</TableDataDictAttr>
+</Dictionary>
+<widgetValue>
+<O>
+<![CDATA[]]></O>
+</widgetValue>
+</InnerWidget>
+<BoundsAttr x="135" y="25" width="80" height="21"/>
+</Widget>
+<Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
+<InnerWidget class="com.fr.form.ui.Label">
+<WidgetName name="Label账期"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
+<PrivilegeControl/>
+</WidgetAttr>
+<widgetValue>
+<O>
+<![CDATA[账期:]]></O>
+</widgetValue>
+<LabelAttr verticalcenter="true" textalign="0" autoline="true"/>
+<FRFont name="SimSun" style="0" size="72"/>
+<border style="0" color="-723724"/>
+</InnerWidget>
+<BoundsAttr x="55" y="25" width="80" height="21"/>
+</Widget>
+<ShowBookmarks showBookmarks="false"/>
+<Sorted sorted="false"/>
+<MobileWidgetList>
+<Widget widgetName="账期"/>
+<Widget widgetName="公司ID"/>
+<Widget widgetName="Search"/>
+</MobileWidgetList>
+<FrozenWidgets/>
+<MobileBookMarkStyle class="com.fr.form.ui.mobile.impl.DefaultMobileBookMarkStyle"/>
+<Display display="true"/>
+<DelayDisplayContent delay="true"/>
+<UseParamsTemplate use="true"/>
+<Position position="0"/>
+<Design_Width design_width="960"/>
+<NameTagModified>
+<TagModified tag="账期" modified="true"/>
+<TagModified tag="公司ID" modified="true"/>
+</NameTagModified>
+<WidgetNameTagMap>
+<NameTag name="账期" tag="账期:"/>
+<NameTag name="公司ID" tag="公司ID:"/>
+</WidgetNameTagMap>
+<ParamAttr class="com.fr.report.mobile.DefaultMobileParamStyle"/>
+<ParamStyle class="com.fr.form.ui.mobile.impl.DefaultMobileParameterStyle"/>
+</Layout>
+<DesignAttr width="960" height="80"/>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72" foreground="-1"/>
+<Background name="ColorBackground" color="-12303292"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="4">
+<FRFont name="Times New Roman" style="0" size="72" foreground="-16776961" underline="1"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="4">
+<FRFont name="Times New Roman" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="4">
+<FRFont name="Times New Roman" style="0" size="72"/>
+<Background name="ColorBackground" color="-4144960"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="ColorBackground" color="-6908266"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="4">
+<FRFont name="Times New Roman" style="0" size="72"/>
+<Background name="ColorBackground" color="-6908266"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="KAA"/>
+<PreviewType PreviewType="1"/>
+<TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
+<TemplateIdAttMark TemplateId="358ee56a-06af-4f8c-bc60-56e346a54f06"/>
+</TemplateIdAttMark>
+</WorkBook>

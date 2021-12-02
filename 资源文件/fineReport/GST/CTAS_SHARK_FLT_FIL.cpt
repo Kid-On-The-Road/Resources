@@ -11,7 +11,8 @@
 <Query>
 <![CDATA[select CARRIER 承运人, TO_CHAR(FLIGHT_DATE, 'yyyymm') 月份,FLIGHT_NO 航班号,AWB_TYPE 运单类型,  FLIGHT_DATE 航班日期, EI 进出港, PCS 件数, WEIGHT 重量
 from CTAS_SHARK_FLT
-]]></Query>
+where FLIGHT_DATE >to_date('2015-03-01','yyyy-mm-dd') 
+and FLIGHT_DATE<to_date('2015-05-31','yyyy-mm-dd')]]></Query>
 <PageQuery>
 <![CDATA[]]></PageQuery>
 </TableData>

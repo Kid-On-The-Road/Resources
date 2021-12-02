@@ -165,14 +165,15 @@
 <PrivilegeControl/>
 </Report>
 <ReportParameterAttr>
-<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0" useParamsTemplate="true"/>
+<Attributes showWindow="true" delayPlaying="false" windowPosition="1" align="0" useParamsTemplate="true" currentIndex="4"/>
 <PWTitle>
 <![CDATA[参数]]></PWTitle>
 <ParameterUI class="com.fr.form.main.parameter.FormParameterUI">
 <Parameters/>
 <Layout class="com.fr.form.ui.container.WParameterLayout">
 <WidgetName name="para"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Margin top="0" left="0" bottom="0" right="0"/>
@@ -190,8 +191,9 @@
 <LCAttr vgap="0" hgap="0" compInterval="0"/>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.parameter.FormSubmitButton">
-<WidgetName name="Search"/>
-<WidgetAttr description="">
+<WidgetName name="Search_c"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Text>
@@ -199,13 +201,14 @@
 <Hotkeys>
 <![CDATA[enter]]></Hotkeys>
 </InnerWidget>
-<BoundsAttr x="224" y="25" width="80" height="21"/>
+<BoundsAttr x="194" y="20" width="80" height="21"/>
 </Widget>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.ComboBox">
-<WidgetName name="KEY"/>
+<WidgetName name="KEY_c"/>
 <LabelName name="KEY:"/>
-<WidgetAttr description="">
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <Dictionary class="com.fr.data.impl.DatabaseDictionary">
@@ -221,12 +224,13 @@
 <![CDATA[]]></O>
 </widgetValue>
 </InnerWidget>
-<BoundsAttr x="130" y="25" width="80" height="21"/>
+<BoundsAttr x="100" y="20" width="80" height="21"/>
 </Widget>
 <Widget class="com.fr.form.ui.container.WAbsoluteLayout$BoundsWidget">
 <InnerWidget class="com.fr.form.ui.Label">
-<WidgetName name="LabelKEY"/>
-<WidgetAttr description="">
+<WidgetName name="LabelKEY_c"/>
+<WidgetAttr aspectRatioLocked="false" aspectRatioBackup="-1.0" description="">
+<MobileBookMark useBookMark="false" bookMarkName="" frozen="false"/>
 <PrivilegeControl/>
 </WidgetAttr>
 <widgetValue>
@@ -237,25 +241,25 @@
 <FRFont name="SimSun" style="0" size="72"/>
 <border style="0" color="-723724"/>
 </InnerWidget>
-<BoundsAttr x="50" y="25" width="80" height="21"/>
+<BoundsAttr x="20" y="20" width="80" height="21"/>
 </Widget>
+<ShowBookmarks showBookmarks="false"/>
 <Sorted sorted="false"/>
 <MobileWidgetList>
-<Widget widgetName="KEY"/>
-<Widget widgetName="Search"/>
+<Widget widgetName="KEY_c"/>
+<Widget widgetName="Search_c"/>
 </MobileWidgetList>
+<FrozenWidgets/>
+<MobileBookMarkStyle class="com.fr.form.ui.mobile.impl.DefaultMobileBookMarkStyle"/>
 <Display display="true"/>
 <DelayDisplayContent delay="false"/>
 <UseParamsTemplate use="true"/>
 <Position position="0"/>
 <Design_Width design_width="960"/>
-<NameTagModified>
-<TagModified tag="KEY" modified="true"/>
-</NameTagModified>
-<WidgetNameTagMap>
-<NameTag name="KEY" tag="KEY:"/>
-</WidgetNameTagMap>
+<NameTagModified/>
+<WidgetNameTagMap/>
 <ParamAttr class="com.fr.report.mobile.DefaultMobileParamStyle"/>
+<ParamStyle class="com.fr.form.ui.mobile.impl.DefaultMobileParameterStyle"/>
 </Layout>
 <DesignAttr width="960" height="80"/>
 </ParameterUI>
@@ -308,7 +312,7 @@
 </Style>
 </StyleList>
 <DesignerVersion DesignerVersion="KAA"/>
-<PreviewType PreviewType="1"/>
+<PreviewType PreviewType="0"/>
 <TemplateIdAttMark class="com.fr.base.iofile.attr.TemplateIdAttrMark">
 <TemplateIdAttMark TemplateId="4c89bce0-c66d-4514-a91e-d75b9eec74fd"/>
 </TemplateIdAttMark>
